@@ -1,0 +1,1 @@
+if you make a https requests you get back a response in a formet known as JSON
