@@ -40,16 +40,21 @@
 
 const button=document.querySelector(".button")
 button.addEventListener("click",()=>{
-    var xhr=new XMLHttpRequest()
-    xhr.open("GET","jsontext.json",true)
-    xhr.onload=()=>{
-    if (xhr.status==200) {
-        let y=JSON.parse(xhr.responseText)
-        console.log(y);
+    // var xhr=new XMLHttpRequest()
+    // xhr.open("GET","jsontext.json",true)
+    // xhr.onload=()=>{
+    // if (xhr.status==200) {
+    //     let y=JSON.parse(xhr.responseText)
+    //     console.log(y);
+      
+    // } }
+    // xhr.send()
+    fetch("jsontext.json")
+    .then((res)=>res.json())
+    .then((data)=>{
         let x=document.createElement("div")
-        let xtext=document.createTextNode(`request successful:${y.name}`)
+        let xtext=document.createTextNode(`request successful:${data.name}`)
         x.appendChild(xtext)
         document.body.appendChild(x)
-    } }
-    xhr.send()
+    })
 })
